@@ -1,0 +1,1 @@
+Eles querem que o programa se lembre das tarefas/pontuações que cada usuário já fez para os funcionários poderem saber quem está indo bem.

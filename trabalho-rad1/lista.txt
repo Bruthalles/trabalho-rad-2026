@@ -1,0 +1,63 @@
+CRIPTOGRAFIA
+
+import hashlib
+hashlib.sha256(b"Estudante@1").hexdigest()
+
+BANCO DE DADOS
+
+import sqlite3
+
+#Cria conexção
+connection = sqlite3.connect("teste.db")
+
+#Cria o cursos e cria a tabela
+cursor = connection.cursor()
+cursor.execute("CREATE TABLE Tabela1 (nome TEXT, curso TEXT, matricula INTEGER)")
+
+#Insere linha na tabela
+cursor.execute("INSERT INTO Tabela1 VALUES ('Pedro', 'ADS', 111111)")
+
+#Pega valores da tabela
+rows = cursor.execute("SELECT * FROM Tabela1").fetchall()
+print(rows)
+
+
+INTERFACE
+
+import tkinter
+
+def _test():
+    root = tkinter.Tk()
+    text = "This is Tcl/Tk %s" % root.globalgetvar('tk_patchLevel')
+    text += "\nThis should be a cedilla: \xe7"
+    
+    label = tkinter.Label(root, text=text)
+    label.pack()
+    
+    test = tkinter.Button(root, text="Click me!")
+    
+    test['command'] = lambda: test.configure(text="[%s]" % test['text'])
+    test.pack()
+    
+    quit = tkinter.Button(root, text="QUIT", command=root.destroy)
+    quit.pack()
+
+    root.iconify() #Minimiza a tela
+    root.update()
+    root.deiconify() #Maximiza a tela
+    root.mainloop()  #loop principal, impede o código de seguir e permite capturar inputs
+
+
+REGEX
+
+Import re
+
+Catalogo = “”
+
+Resultados = re.findall(“regex”, catalogo)
+
+
+
+Ler txt:
+
+ex = open(r"caminho/do/arquivo.txt", "r").read()
