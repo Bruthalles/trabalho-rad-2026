@@ -88,8 +88,14 @@ def salvarEmail():
         tabela.insert('', tk.END, values=linhas[n])
         
 
+def root():
+    tela.destroy()
+
 botao_email = tk.Button(tela,text="salvar email",command=salvarEmail)
 botao_email.pack()
+
+sair = tk.Button(tela,text="sair",command=root)
+sair.pack()
 tela.mainloop()
 
 tela2 = tk.Tk()
