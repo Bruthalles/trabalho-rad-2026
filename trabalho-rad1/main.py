@@ -16,28 +16,34 @@ cursor = conection.cursor()
 tbl_command = '''CREATE TABLE IF NOT EXISTS Idosos(
                 nome TEXT NOT NULL,
                 pontuacao INTEGER NOT NULL,
-                tarefas TEXT NOT NULL);'''
+                tarefas TEXT NOT NULL,
+                fase TEXT NOT NULL);'''
 
 
 insert_command = '''INSERT INTO Idosos
-                    VALUES('lucas',10,'moveu arquivo');'''
+                    VALUES('ze',10,'moveu arquivo','dificil');'''
 
 #########################################
 
+cursor.execute(tbl_command)
 cursor.execute('''SELECT * FROM Idosos''')
 linhas = cursor.fetchall()
 
 conection.commit()
 
-colunas = ('nome','pontuacao','tarefa')
+colunas = ('nome','pontuacao','tarefa','fase')
 tabela = ttk.Treeview(tela,columns=colunas,show='headings')
 tabela.heading('nome', text='nome')
 tabela.heading('pontuacao', text='pontuacao')
 tabela.heading('tarefa', text='tarefa')
+tabela.heading('fase', text='fase')
+
 
 tabela.column('nome', width=200)
 tabela.column('pontuacao', width=200)
 tabela.column('tarefa', width=200)
+tabela.column('fase', width=200)
+
 
 def salvar():
     global nome
@@ -49,7 +55,7 @@ def salvar():
 
         for linha in linhas:
             tabela.insert('', tk.END, values=linha)
-
+            tabela.pack()
         tabela.pack()
 
     else:
@@ -62,6 +68,8 @@ nomeLogin.pack()
 
 botaoLogin = tk.Button(tela, text="entrar",command=salvar)
 botaoLogin.pack()
+
+
 
 def salvarEmail():
     global nome
