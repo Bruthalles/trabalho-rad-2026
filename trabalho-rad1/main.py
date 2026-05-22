@@ -87,6 +87,8 @@ def salvarEmail():
         tabela.delete(row)
         tabela.insert('', tk.END, values=linhas[n])
         
+def root():
+    tela.destroy()
 
 def root():
     tela.destroy()
