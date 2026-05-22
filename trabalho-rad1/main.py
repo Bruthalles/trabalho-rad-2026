@@ -90,6 +90,9 @@ def salvarEmail():
 def root():
     tela.destroy()
 
+def root():
+    tela.destroy()
+
 botao_email = tk.Button(tela,text="salvar email",command=salvarEmail)
 botao_email.pack()
 
